@@ -97,5 +97,6 @@
 	</div>
 	<?php echo $_POST['Имя']; ?>
 	<p>&copy; 2019 - <?php echo $d ?></p>
+	<script src="js/index.js"></script>
 </body>
 </html>
