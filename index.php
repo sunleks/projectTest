@@ -75,17 +75,17 @@
 	</div>
 	<div>Город: 
 		<?php
-			echo $_POST['value'];
+			echo $_POST['city'];
 		?>
 	</div>
 	<form method="post">
 		<!-- В значение value мы передаём наши переменные, в которых мы сохранили данные ввода  -->
 		<label for="name">Имя</label>
-		<input type="text" name="name" id="name" value="<?php echo $name;?>">
+		<input type="text" name="name" id="name" value="<?=$name;?>">
 		<label for="age">Возраст</label>
-		<input type="text" name="age" id="age" value="<?php echo $age;?>">
+		<input type="text" name="age" id="age" value="<?=$age;?>">
 		<label for="city">Город</label>
-		<input type="text" class="city" name="city" id="city" value="<?php echo $city;?>">
+		<input type="text" class="city" name="city" id="city" value="<?=$cities['0']['cities'];?>">
 		<select name="cities" id="cities">
 			<!-- Проходим циклом foreach по двумерному массиву и выводим значение cities -->
 			<?php foreach ($cities as $key => $cities) { ?>
