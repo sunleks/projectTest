@@ -90,7 +90,7 @@
 			<!-- Проходим циклом foreach по двумерному массиву и выводим значение cities -->
 			<?php foreach ($cities as $key => $cities) { ?>
 				
-			<option name="<?=$cities['cities'];?>"><?=$cities['cities']?></option>
+			<option value="<?=$cities['cities']?>"><?=$cities['cities']?></option>
 			
 			<?php } ?>
 		</select>
