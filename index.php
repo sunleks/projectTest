@@ -9,12 +9,14 @@
 	$query->execute();
 	$cities = $query->fetchAll();
 
+	$query1 = $db->prepare('SELECT * FROM users u INNER JOIN cities c ON u.id_country = c.id');
+	$query1->execute();
+	$users = $query1->fetchAll();
 
-	//Распечатка всей БД на странице
+	//Распечатка всей БД users на странице
 	echo '<pre>';
-	print_r($cities);
+	print_r($users);
 	echo '</pre>';
-
 
 	// Проверка на правильность ввода данных. Отправка данных осуществляется методом POST
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,8 +25,6 @@
 		$name = $_POST['name'];
 		$age = $_POST['age'];
 		$city = $_POST['city'];
-		$result = $_POST['list'];
-		
 
 		//Проверка на заполненность полей
 		if ($name == "" || $age == "" || $city == "") {
@@ -78,6 +78,31 @@
 			echo $_POST['city'];
 		?>
 	</div>
+	<style>
+		table {
+			margin-top: 50px; 
+			border-collapse: collapse;
+		}
+		td {
+			border: 2px solid black; 
+			min-width: 80px; 
+			box-sizing: border-box; padding: 20px;
+		}
+	</style>	
+	<table>
+		<tr>
+			<th>Имя</th>
+			<th>Возраст</th>
+			<th>Город</th>
+		</tr>
+		<?php foreach ($users as $key => $value): ?>
+		<tr>
+			<td><?=$value['name']?></td>
+			<td><?=$value['age']?></td>
+			<td><?=$value['cities']?></td>
+		</tr>
+		<?php endforeach; ?>
+	</table>
 	<form method="post">
 		<!-- В значение value мы передаём наши переменные, в которых мы сохранили данные ввода  -->
 		<label for="name">Имя</label>
