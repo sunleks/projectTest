@@ -21,5 +21,7 @@ $users = array(
   array('name' => 'Андрей','age' => '56','id_country' => '2'),
   array('name' => 'Алексей','age' => '25','id_country' => '4'),
   array('name' => 'Оля','age' => '30','id_country' => '3'),
-  array('name' => 'Ира','age' => '53','id_country' => '1')
+  array('name' => 'Иван','age' => '56','id_country' => '1'),
+  array('name' => 'Олег','age' => '24','id_country' => '3'),
+  array('name' => 'Дима','age' => '15','id_country' => '1')
 );

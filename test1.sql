@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 04 2019 г., 12:02
+-- Время создания: Июн 06 2019 г., 21:18
 -- Версия сервера: 5.7.25-log
 -- Версия PHP: 7.1.22
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `parshin`
+-- База данных: `test1`
 --
 
 -- --------------------------------------------------------
@@ -29,20 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `name` text NOT NULL,
-  `age` int(11) NOT NULL,
-  `id_country` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `NAME` char(128) DEFAULT NULL,
+  `citeis` char(64) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `users`
---
-
-INSERT INTO `users` (`name`, `age`, `id_country`) VALUES
-('Андрей', 56, 2),
-('Алексей', 25, 4),
-('Оля', 30, 3),
-('Ира', 53, 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -52,17 +43,17 @@ INSERT INTO `users` (`name`, `age`, `id_country`) VALUES
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
-  ADD KEY `id` (`id_country`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- Ограничения внешнего ключа таблицы `users`
+-- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_country`) REFERENCES `cities` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
